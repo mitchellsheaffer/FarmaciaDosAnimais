@@ -1,7 +1,10 @@
 package views;
 
+<<<<<<< HEAD
 import java.awt.event.ActionEvent;
 
+=======
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -931,6 +934,7 @@ public class Employee_View extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>                        
+<<<<<<< HEAD
     /*
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -941,6 +945,9 @@ public class Employee_View extends javax.swing.JFrame {
         });
     }
     */
+=======
+
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
     /**
      * @param args the command line arguments
      */
@@ -1044,7 +1051,11 @@ public class Employee_View extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+<<<<<<< HEAD
     // End of variables declaration  
 
 		
+=======
+    // End of variables declaration                   
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 }

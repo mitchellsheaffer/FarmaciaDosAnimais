@@ -1,4 +1,5 @@
 package controllers;
+<<<<<<< HEAD
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -117,4 +118,19 @@ public class City_Controller{
 		
 	}
 	
+=======
+import java.sql.SQLException;
+
+import views.City_View;
+import models.City_Model;
+
+public class City_Controller {
+	private City_View cityView;
+	private City_Model cityModel;
+	
+	public City_Controller() throws SQLException{
+		this.cityModel = new City_Model();
+		this.cityView = new City_View();
+	}
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 }

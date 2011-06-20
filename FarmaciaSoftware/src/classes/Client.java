@@ -75,6 +75,10 @@ public class Client extends Person{
 	public Double getClientBalance(){
 		return this.clientBalance;
 	}
+<<<<<<< HEAD
+=======
+    @Override
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 	public String formatToString(){
 		String client = super.formatToString() + ", '" + this.getClientSocialSecurity().getSocialSecurityNumber() + "', '" + this.getClientStateId().getIdNumber() + "', " +
 		this.getClientBalance() + ", '" + super.getPersonAddress().getAddressLocality().getRegion() + "', '" + super.getPersonAddress().getAddressLocality().getCity() + "', '" + 

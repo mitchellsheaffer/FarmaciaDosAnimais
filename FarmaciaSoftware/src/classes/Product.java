@@ -25,6 +25,13 @@ public class Product {
 	 */
 	private String productUnity;
 	/*
+<<<<<<< HEAD
+=======
+	 * defines the quantity available in stock
+	 */
+	private Integer productQuantity;
+	/*
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 	 * price if the customer pays in cash
 	 */
 	private Double productPriceInCash;
@@ -50,6 +57,10 @@ public class Product {
 		this.productId = 0;
 		this.productName = "";
 		this.productUnity = "UN";
+<<<<<<< HEAD
+=======
+		this.productQuantity = 0;
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 		this.productPriceInCash = 0.00;
 		this.productPriceInTerm = 0.00;
 		this.productFinalPrice = 0.00;
@@ -59,10 +70,18 @@ public class Product {
 	/*
 	 * overrode constructor
 	 */
+<<<<<<< HEAD
 	public Product(Integer id, String name, String unity, Double priceCash, Double priceTerm, Double finalPrice, String description){
 		this.setProductId(id);
 		this.setProductName(name);
 		this.setProductUnity(unity);
+=======
+	public Product(Integer id, String name, String unity, Integer quantity, Double priceCash, Double priceTerm, Double finalPrice, String description){
+		this.setProductId(id);
+		this.setProductName(name);
+		this.setProductUnity(unity);
+		this.setProductQuantity(quantity);
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 		this.setProductPriceCash(priceCash);
 		this.setProductPriceTerm(priceTerm);
 		this.setProductDescription(description);
@@ -107,6 +126,19 @@ public class Product {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	public void setProductQuantity(Integer quantity) {
+		// TODO Auto-generated method stub
+		if(quantity >= 0){
+			this.productQuantity = quantity;
+		}
+		else{
+			this.productQuantity = 0;
+		}
+		
+	}
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 
 	public void setProductName(String name) {
 		// TODO Auto-generated method stub
@@ -144,6 +176,13 @@ public class Product {
 		return this.productId;
 	}
 	
+<<<<<<< HEAD
+=======
+	public Integer getProductQuantity(){
+		return this.productQuantity;
+	}
+	
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 	public String  getProductName(){
 		return this.productName;
 	}
@@ -170,7 +209,11 @@ public class Product {
 	
 	public String formatToString(){
 		String product;
+<<<<<<< HEAD
 		product = "'" + this.getProductName() + "', '" + this.getProductUnity() + "', " + 
+=======
+		product = "'" + this.getProductName() + "', '" + this.getProductUnity() + "', " + this.getProductQuantity() + ", " + 
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 		this.getProductPriceInCash() + ", " + this.getProductPriceInTerm() + ", " +  this.getProductFinalPrice() + ", '" + this.getProductDescription() +"'";
 		
 		return product;

@@ -1,5 +1,6 @@
 package models;
 import java.sql.*;
+<<<<<<< HEAD
 import java.util.*;
 
 import classes.*;
@@ -8,6 +9,11 @@ import classes.Date;
 /*
  * class not completed yet
  */
+=======
+
+import classes.Sale;
+
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 public class Sale_Model extends Register{
 
 	/**
@@ -69,6 +75,7 @@ public class Sale_Model extends Register{
 		
 	}
 	
+<<<<<<< HEAD
 	public ArrayList<Sale> getAllSales(Date date){
 		ArrayList<Sale> sales = new ArrayList<Sale>();
 		String query = "SELECT * FROM Sales WHERE date=" + date.formatToString() + ";";
@@ -84,6 +91,8 @@ public class Sale_Model extends Register{
 		return sale;
 	}
 	
+=======
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 	private int executeQuery(String query){
 		int status = 0;
 		
@@ -100,6 +109,7 @@ public class Sale_Model extends Register{
 		}
 		return status;
 	}
+<<<<<<< HEAD
 	private ArrayList<Sale> getList(String query){
 
 		ArrayList<Sale> list = new ArrayList<Sale>();
@@ -124,6 +134,11 @@ public class Sale_Model extends Register{
 	public static void main(String args[]){
 		Product p = new Product(1, "Ivomec 50ml", "UN", 12.50, 14.00, 13.00, "matar carrapato");
 	
+=======
+	
+	public static void main(String args[]){
+		
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 		try {
 			Sale_Model model = new Sale_Model();
 			model.createSalesTable();

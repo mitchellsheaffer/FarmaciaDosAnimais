@@ -27,9 +27,15 @@ public class DatabaseConn {
 	 */
 	public DatabaseConn(){
 		this.conn = null;
+<<<<<<< HEAD
 		this.userName = "pribei";
 		this.password = ".E5TOMcC";
 		this.serverName = "mendel.cs.umn.edu";
+=======
+		this.userName = "philippe";
+		this.password = ".E5TOMcC";
+		this.serverName = "localhost";
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 		this.dbms = "mysql";
 		this.dbName = "farmacia";
 		this.portNumber = "3306";
@@ -60,6 +66,10 @@ public class DatabaseConn {
 			      	//;create=true
 			   getConnection("jdbc:" + this.dbms + ":" + this.dbName, connectionProps);
 			    }
+<<<<<<< HEAD
+=======
+			    System.out.println("Connected to database");
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 		  }
 			catch (Exception e){
 			// TODO Auto-generated catch block

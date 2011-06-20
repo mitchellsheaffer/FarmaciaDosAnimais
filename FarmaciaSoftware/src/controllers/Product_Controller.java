@@ -1,5 +1,6 @@
 package controllers;
 
+<<<<<<< HEAD
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -43,4 +44,8 @@ public class Product_Controller {
 			productView.close();
 		}
 	}
+=======
+public class Product_Controller {
+
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 }

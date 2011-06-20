@@ -12,9 +12,15 @@ public class ProductForm extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JTextField[] fields;
 	private final String[] labels = { "Codigo:", "Nome:", "Unidade:", "Quantidade em estoque:", "Preco em dinheiro: ", "Preco a prazo:", "Preco final:", "Descricao:" };
+<<<<<<< HEAD
     private final char[] mnemonics = { 'F', 'M', 'L', 'A','F','F','F','F'};
     private final int[] widths = { 4, 20, 2, 3, 4, 4, 4, 20};
     private final String[] description = { "Codigo:", "Nome:", "Unidade:", "Quantidade em estoque:", "Preco em dinheiro: ", "Preco a prazo:", "Preco final:", "Descricao:" };
+=======
+        private final char[] mnemonics = { 'F', 'M', 'L', 'A','F','F','F','F'};
+        private final int[] widths = { 4, 20, 2, 3, 4, 4, 4, 20};
+        private final String[] description = { "Codigo:", "Nome:", "Unidade:", "Quantidade em estoque:", "Preco em dinheiro: ", "Preco a prazo:", "Preco final:", "Descricao:" };
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 
 	public ProductForm(){
 

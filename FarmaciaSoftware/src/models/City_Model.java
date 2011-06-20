@@ -1,7 +1,11 @@
 package models;
+<<<<<<< HEAD
 import classes.ListTableModel;
 import classes.Locality;
 
+=======
+import classes.Locality;
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 import java.sql.*;
 import java.util.*;
 /*
@@ -30,11 +34,19 @@ public class City_Model extends Register{
 	 * creates a table, if is already does not exist
 	 */
 	public void createTableCities(){
+<<<<<<< HEAD
 		String query =  "CREATE TABLE IF NOT EXISTS Cities(id INT NOT NULL AUTO_INCREMENT,"
 						+ "PRIMARY KEY(id)," +
 							"region VARCHAR(100) NOT NULL," +
 							"city VARCHAR(100) NOT NULL," +
 							"state VARCHAR(10) NOT NULL," +
+=======
+		String query =  "CREATE TABLE IF NOT EXISTS Cities(id INT NOT NULL AUTO_INCREMENT."
+						+ "PRIMARY KEY(id)," +
+							"region VARCHAR(100) NOT NULL" +
+							"city VARCHAR(100) NOT NULL" +
+							"state VARCHAR(10) NOT NULL" +
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 							"country VARCHAR(30) NOT NULL);";
 		if(this.executeQuery(query) == 0){
 			System.out.println("Table cities was successful created");
@@ -46,16 +58,27 @@ public class City_Model extends Register{
 	/*
 	 * inserts a new city into the database
 	 */
+<<<<<<< HEAD
 	public int insertNewCity(Locality locality){
+=======
+	public void insertNewCity(Locality locality){
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 		
 		System.out.println(locality.formatToString());
 		String query = "INSERT INTO Cities(region, city, state, country) VALUES (" + locality.formatToString() + ");";
 		System.out.println(query);
 		if(this.executeQuery(query) == 0){
+<<<<<<< HEAD
 			return 0;
 		}
 		else{
 			return -1;
+=======
+			System.out.println("New city was successfully inserted");
+		}
+		else{
+			System.out.println("The insertion was not successful");
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 		}
 	}
 	/*
@@ -118,29 +141,61 @@ public class City_Model extends Register{
 	 * 
 	 *  returns an ArrayList
 	 */
+<<<<<<< HEAD
 	public ListTableModel getCity(String city){
 		String query = "SELECT * FROM Cities WHERE city='" + city + "';";
 		
 		ListTableModel model = null;
 		Statement stmt;
 		
+=======
+	public ArrayList<Locality> getCity(String city){
+		String query = "SELECT * FROM Cities WHERE city='" + city + "';";
+		
+		ArrayList<Locality> results = new ArrayList<Locality>();
+		
+		Statement stmt;
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 		try {
 			stmt = this.conn.createStatement();
 			stmt.executeQuery (query);
 			ResultSet rs = stmt.getResultSet ();
+<<<<<<< HEAD
 			model = ListTableModel.createModelFromResultSet(rs);  
 
+=======
+
+			while (rs.next ()){
+				int idVal = rs.getInt ("id");
+				String region = rs.getString ("region");
+				String city1 = rs.getString ("city");
+				String state = rs.getString("state");
+				String country = rs.getString("country");
+				
+				Locality newLocality = new Locality(region, city1, state, country);
+				results.add(newLocality);
+				
+				System.out.println ("id = " + idVal + ", region = " + region + ", city = " + city1 + ", state = " + state + ", country = " + country);
+					   
+			}
+			
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 			rs.close ();
 			stmt.close ();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}			
+<<<<<<< HEAD
 		return model;
+=======
+		return results;
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 	}
 	/*
 	 * deletes a given city
 	 */
+<<<<<<< HEAD
 	public int deleteCity(String city){
 		String query = "DELETE FROM Cities WHERE city='" + city + "';";
 		
@@ -149,6 +204,16 @@ public class City_Model extends Register{
 		}
 		else{
 			return 1;
+=======
+	public void deleteCity(String city){
+		String query = "DELETE FROM Cities WHERE city='%" + city + "%';";
+		
+		if(this.executeQuery(query) == 0){
+			System.out.println("City has been Successfully deleted");
+		}
+		else{
+			System.out.println("The deletion was unsuccessful");
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 		}
 	}
 	
@@ -162,6 +227,10 @@ public class City_Model extends Register{
 		try {
 			stmt = this.conn.createStatement();
 				stmt.execute(query);
+<<<<<<< HEAD
+=======
+				System.out.println("Query executed Successfully");
+>>>>>>> eadc923cd8718cdc6d96396a8161c62d94b0338f
 				status = 0;
 			
 		} catch (SQLException e) {
