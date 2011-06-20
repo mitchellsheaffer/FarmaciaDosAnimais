@@ -23,13 +23,12 @@ public class ProductTest {
 		assertEquals(product.getProductPriceInCash(), 0, 0.01);
 		assertEquals(product.getProductPriceInTerm(), 0, 0.01);
 		assertEquals(product.getProductUnity(), "UN");
-		assertEquals((int)product.getProductQuantity(), 0);
 		
 	}
 
 	@Test
 	public void testProductIntegerStringStringIntegerDoubleDoubleDoubleString() {
-		Product product = new Product(1, "Ivomec 50ml", "FC", 10, 16.50, 18.00, 17.50, "Usado contra carrapato");
+		Product product = new Product(1, "Ivomec 50ml", "FC",  16.50, 18.00, 17.50, "Usado contra carrapato");
 		
 		assertEquals((int)product.getProductId(), 1);
 		assertEquals(product.getProductDescription(), "Usado contra carrapato");
@@ -38,9 +37,6 @@ public class ProductTest {
 		assertEquals(product.getProductPriceInCash(), 16.50, 0.01);
 		assertEquals(product.getProductPriceInTerm(), 18.00, 0.01);
 		assertEquals(product.getProductUnity(), "FC");
-		assertEquals((int)product.getProductQuantity(), 10);
-		
-		
 	}
 
 	/*
@@ -85,15 +81,6 @@ public class ProductTest {
 		assertEquals(product.getProductPriceInCash(), 0, 0.01);
 	}
 
-	@Test
-	public void testSetProductQuantity() {
-		Product product = new Product();
-		product.setProductQuantity(100);
-		assertEquals((int)product.getProductQuantity(), 100);
-		
-		product.setProductQuantity(-19);
-		assertEquals((int)product.getProductQuantity(), 0);
-	}
 
 	@Test
 	public void testSetProductName() {
@@ -133,7 +120,7 @@ public class ProductTest {
 
 	@Test
 	public void testFormatToString() {
-		Product product = new Product(1, "Ivomec 50ml", "FC", 10, 16.50, 18.00, 17.50, "Usado contra carrapato");
+		Product product = new Product(1, "Ivomec 50ml", "FC", 16.50, 18.00, 17.50, "Usado contra carrapato");
 		
 		assertEquals((int)product.getProductId(), 1);
 		assertEquals(product.getProductDescription(), "Usado contra carrapato");
@@ -142,7 +129,6 @@ public class ProductTest {
 		assertEquals(product.getProductPriceInCash(), 16.50, 0.01);
 		assertEquals(product.getProductPriceInTerm(), 18.00, 0.01);
 		assertEquals(product.getProductUnity(), "FC");
-		assertEquals((int)product.getProductQuantity(), 10);
 		
 		String pdt = product.formatToString();
 		assertEquals(pdt, pdt);

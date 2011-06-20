@@ -1,6 +1,5 @@
 package views;
-import classes.*;
-import models.*;
+
 import controllers.*;
 
 import java.awt.*;
@@ -8,6 +7,9 @@ import java.awt.event.*;
 import java.sql.SQLException;
 
 import javax.swing.*;
+
+import models.City_Model;
+import models.Product_Model;
 
 /*
  * Main interface of the program
@@ -24,7 +26,7 @@ public class Menu extends JFrame implements ActionListener, ItemListener{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JCheckBoxMenuItem styleItems[];
+	
 	private JLabel displayLabel;
 	private JMenuBar bar;
 	
@@ -109,168 +111,204 @@ public class Menu extends JFrame implements ActionListener, ItemListener{
 						java.awt.EventQueue.invokeLater(new Runnable() {
 
 				            public void run() {
-				                new City_View().setVisible(true);
+				            	City_Model model;
+								try {
+									model = new City_Model();
+									new City_View(model).setVisible(true);
+								} catch (SQLException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+				            
 				            }
 				        });
 					}});
-					    /*
-					    submit.addActionListener(new ActionListener() {
-					      public void actionPerformed(ActionEvent e) {
-					    	  Integer id = Integer.parseInt(form.getText(0));
-					    	  String name = form.getText(1);
-					    	  String unity = form.getText(2).toUpperCase();
-					    	  Integer quantity = Integer.parseInt(form.getText(3));
-					    	  Double priceCash = Double.parseDouble(form.getText(4));
-					    	  Double priceTerm = Double.parseDouble(form.getText(5));
-					    	  Double priceFinal = Double.parseDouble(form.getText(6));
-					    	  String description = form.getText(7);
-					    	  
-					    	  Product product = new Product(id, name, unity, quantity, priceCash, priceTerm, priceFinal, description);
-					    	  try {
-								Product_Model model = new Product_Model();
-								if(model.addNewProduct(product) == 0){
-									JOptionPane.showMessageDialog(null, "Object added successfully", null, JOptionPane.PLAIN_MESSAGE);
+	}
+
+	public void addRegisterCity(JMenuItem item, JMenu menu){
+		item.setMnemonic('A');
+		menu.add(item);
+		item.addActionListener(
+				
+				new ActionListener(){
+					
+					public void actionPerformed(ActionEvent event){
+
+						java.awt.EventQueue.invokeLater(new Runnable() {
+
+				            public void run() {
+				            	try {
+				            		City_Model model = new City_Model();
+				            		City_View view = new City_View(model);
+				            		
+									City_Controller city = new City_Controller(model, view);
+									city.displayCityView();
+								} catch (SQLException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
 								}
-								else{
-									JOptionPane.showMessageDialog(null, "There is an error in the input");
-								}
-								
-							} catch (SQLException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}
-					    	  
-					        
-					      }
-					    });
-					    
-					   close.addActionListener(new ActionListener() {
-						   public void actionPerformed(ActionEvent e){
-							   System.exit(0);
-						   }
-					   });
-	
-					    JFrame f = new JFrame("Text Form Example");
-					    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					    f.getContentPane().add(form, BorderLayout.NORTH);
-					    JPanel p = new JPanel();
-					    p.add(submit);
-					    p.add(close);
-					    f.getContentPane().add(p, BorderLayout.SOUTH);
-					    f.pack();
-					    f.setVisible(true);
-					    f.setSize(800, 600);
-					  }*/
+				                
+				            }
+				        });
+					}
+				}
+			);
 	}
 	
 	public void addRegisterEmployee(JMenuItem item, JMenu menu){
-			item.setMnemonic('A');
-			menu.add(item);
-			item.addActionListener(
+		item.setMnemonic('A');
+		menu.add(item);
+		item.addActionListener(
+				
+				new ActionListener(){
 					
-					new ActionListener(){
-						
-						public void actionPerformed(ActionEvent event){
+					public void actionPerformed(ActionEvent event){
 
-							java.awt.EventQueue.invokeLater(new Runnable() {
+						java.awt.EventQueue.invokeLater(new Runnable() {
 
-					            public void run() {
-					                new Employee_View().setVisible(true);
-					            }
-					        });
-						}});
+				            public void run() {
+				                new Employee_View().setVisible(true);
+				            }
+				        });
+					}});
 	}
+	
+	public void addRegisterProduct(JMenuItem item, JMenu menu){
+		item.setMnemonic('A');
+		menu.add(item);
+		item.addActionListener(
+				
+				new ActionListener(){
+					
+					public void actionPerformed(ActionEvent event){
+
+						java.awt.EventQueue.invokeLater(new Runnable() {
+
+				            public void run() {
+				            	try {
+				            		Product_Model model = new Product_Model();
+				            		Product_View view = new Product_View(model);
+				            		
+									Product_Controller city = new Product_Controller(model, view);
+									city.displayProductView();
+								} catch (SQLException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+				            }
+				        });
+					}});
+	}
+	public void addRegisterSeller(JMenuItem item, JMenu menu){
+		item.setMnemonic('A');
+		menu.add(item);
+		item.addActionListener(
+				
+				new ActionListener(){
+					
+					public void actionPerformed(ActionEvent event){
+
+						java.awt.EventQueue.invokeLater(new Runnable() {
+
+				            public void run() {
+				                new Seller_View().setVisible(true);
+				            }
+				        });
+					}});
+	}
+	
 	/*
 	 * Used the "Register Membership", which could be a new employee, a new product or a new sale
 	 * implements a ActionListener, to perform a action when the user requires
 	 */
 	public void createRegisterMenu(){
 		
-		JMenu cadastro = new JMenu("Cadastro");
-		cadastro.setMnemonic('F');
+		JMenu register = new JMenu("Cadastro");
+		register.setMnemonic('F');
 		
 		/*
 		 * adds the city item to the menu Cadastro
 		 */
 		JMenuItem cidade = new JMenuItem("Cidade");
-		this.addMenuItemListener(cidade, cadastro);
+		this.addRegisterCity(cidade, register);
 		
 		/*
 		 * adds a new activity
 		 */
 		JMenuItem ramoAtividade = new JMenuItem("Ramo de Atividade");
-		this.addMenuItemListener(ramoAtividade, cadastro);
+		this.addMenuItemListener(ramoAtividade, register);
 		
 		/*
 		 * add a new payment method
 		 */
 		JMenuItem formaPagamento = new JMenuItem("Forma de Pagamento");
-		this.addMenuItemListener(formaPagamento, cadastro);
+		this.addMenuItemListener(formaPagamento, register);
 		
 		/*
 		 * adds a new seller
+		 * stops here
 		 */
 		
-		JMenuItem vendedores = new JMenuItem("Vendedores");
-		this.addMenuItemListener(vendedores, cadastro);
+		JMenuItem sellers = new JMenuItem("Vendedores");
+		this.addRegisterSeller(sellers, register);
 		
 		/*
 		 * adds new products
 		 */
 		
-		JMenu produtos = new JMenu("Produtos");
-		this.addMenuItemListener(produtos, cadastro);
+		JMenuItem products = new JMenuItem("Produtos");
+		this.addRegisterProduct(products, register);
 		
 		/*
 		 * adds forms of payment
 		 */
-		JMenu formasPagamento = new JMenu("Formas de Recebimento");
-		this.addMenuItemListener(formasPagamento, cadastro);
+		JMenuItem paymentMethods = new JMenuItem("Formas de Recebimento");
+		this.addMenuItemListener(paymentMethods, register);
 		
 		/*
 		 * adds new Clients 
 		 */
-		JMenu clientes = new JMenu("Clientes");
-		this.addMenuItemListener(clientes, cadastro);
+		JMenuItem clients = new JMenuItem("Clientes");
+		this.addMenuItemListener(clients, register);
 		
 		/*
 		 * adds new account register
 		 */
-		JMenu cadastroContas = new JMenu("Cadastro de Conta");
-		this.addMenuItemListener(cadastroContas, cadastro);
+		JMenuItem registerAccount = new JMenuItem("Cadastro de Conta");
+		this.addMenuItemListener(registerAccount, register);
 		
 		/*
 		 * adds new account plan
 		 */
-		JMenu planoConta = new JMenu("Plano de Conta");
-		this.addMenuItemListener(planoConta, cadastro);
+		JMenuItem accountPlan = new JMenuItem("Plano de Conta");
+		this.addMenuItemListener(accountPlan, register);
 		
 		/*
 		 * add a new kind of payment
 		 */
-		JMenu tipoPagamento = new JMenu("Tipo de Pagamento");
-		this.addMenuItemListener(tipoPagamento, cadastro);
+		JMenuItem paymentForms = new JMenuItem("Tipo de Pagamento");
+		this.addMenuItemListener(paymentForms, register);
 		
 		/*
 		 * Suppliers
 		 */
 		
-		JMenu fornecedores = new JMenu("Fornecedores");
-		this.addMenuItemListener(fornecedores, cadastro);
+		JMenuItem suppliers = new JMenuItem("Fornecedores");
+		this.addMenuItemListener(suppliers, register);
 		
 		/*
 		 * register a new employee
 		 */
 		
-		JMenu cadastroFuncionario = new JMenu("Cadastro de Funcionarios");
-		this.addRegisterEmployee(cadastroFuncionario, cadastro);
+		JMenuItem registerEmployees = new JMenuItem("Cadastro de Funcionarios");
+		this.addRegisterEmployee(registerEmployees, register);
 		
 		/*
 		 * option to close the program
 		 */
 		JMenuItem exitItem = new JMenuItem("Saida");
 		exitItem.setMnemonic('x');
-		cadastro.add(exitItem);
+		register.add(exitItem);
 		exitItem.addActionListener(
 				new ActionListener(){			
 					public void actionPerformed(ActionEvent event){
@@ -278,7 +316,7 @@ public class Menu extends JFrame implements ActionListener, ItemListener{
 					}
 				});
 		
-		this.bar.add(cadastro);
+		this.bar.add(register);
 	}
 	
 	/*
@@ -306,16 +344,24 @@ public class Menu extends JFrame implements ActionListener, ItemListener{
 		JMenu vendas = new JMenu("Vendas");
 		vendas.setMnemonic('F');
 		
-		JMenuItem mercadoria = new JMenuItem("mercadoria");
-		mercadoria.setMnemonic('A');
-		vendas.add(mercadoria);
-		vendas.addActionListener(
+		JMenuItem sales = new JMenuItem("Vendas");
+		vendas.add(sales);
+		
+		sales.setMnemonic('A');
+		vendas.add(sales);
+		sales.addActionListener(
+				
 				new ActionListener(){
 					
 					public void actionPerformed(ActionEvent event){
-						JOptionPane.showMessageDialog(Menu.this, "Produtos Veterinarios", "About", JOptionPane.PLAIN_MESSAGE);
-					}
-				});
+
+						java.awt.EventQueue.invokeLater(new Runnable() {
+
+				            public void run() {
+				                new Sales_View().setVisible(true);
+				            }
+				        });
+					}});
 		
 		this.bar.add(vendas);
 	}

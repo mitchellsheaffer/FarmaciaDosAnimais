@@ -25,10 +25,6 @@ public class Product {
 	 */
 	private String productUnity;
 	/*
-	 * defines the quantity available in stock
-	 */
-	private Integer productQuantity;
-	/*
 	 * price if the customer pays in cash
 	 */
 	private Double productPriceInCash;
@@ -54,7 +50,6 @@ public class Product {
 		this.productId = 0;
 		this.productName = "";
 		this.productUnity = "UN";
-		this.productQuantity = 0;
 		this.productPriceInCash = 0.00;
 		this.productPriceInTerm = 0.00;
 		this.productFinalPrice = 0.00;
@@ -64,11 +59,10 @@ public class Product {
 	/*
 	 * overrode constructor
 	 */
-	public Product(Integer id, String name, String unity, Integer quantity, Double priceCash, Double priceTerm, Double finalPrice, String description){
+	public Product(Integer id, String name, String unity, Double priceCash, Double priceTerm, Double finalPrice, String description){
 		this.setProductId(id);
 		this.setProductName(name);
 		this.setProductUnity(unity);
-		this.setProductQuantity(quantity);
 		this.setProductPriceCash(priceCash);
 		this.setProductPriceTerm(priceTerm);
 		this.setProductDescription(description);
@@ -113,16 +107,6 @@ public class Product {
 		}
 	}
 
-	public void setProductQuantity(Integer quantity) {
-		// TODO Auto-generated method stub
-		if(quantity >= 0){
-			this.productQuantity = quantity;
-		}
-		else{
-			this.productQuantity = 0;
-		}
-		
-	}
 
 	public void setProductName(String name) {
 		// TODO Auto-generated method stub
@@ -160,10 +144,6 @@ public class Product {
 		return this.productId;
 	}
 	
-	public Integer getProductQuantity(){
-		return this.productQuantity;
-	}
-	
 	public String  getProductName(){
 		return this.productName;
 	}
@@ -190,7 +170,7 @@ public class Product {
 	
 	public String formatToString(){
 		String product;
-		product = "'" + this.getProductName() + "', '" + this.getProductUnity() + "', " + this.getProductQuantity() + ", " + 
+		product = "'" + this.getProductName() + "', '" + this.getProductUnity() + "', " + 
 		this.getProductPriceInCash() + ", " + this.getProductPriceInTerm() + ", " +  this.getProductFinalPrice() + ", '" + this.getProductDescription() +"'";
 		
 		return product;

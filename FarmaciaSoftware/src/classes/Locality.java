@@ -121,7 +121,7 @@ public class Locality {
 	 * returns locality in the format " Dinkytown, Minneapolis, Minnesota, USA
 	 */
 	public String formatToString(){
-		String locality = this.getRegion() + ", " + this.getCity() + ", " + this.getState() + ", " + this.getCountry();
+		String locality = "'" + this.getRegion() + "', '" + this.getCity() + "', '" + this.getState() + "', '" + this.getCountry() + "'";
 		return locality;
 	}
 }

@@ -60,7 +60,6 @@ public class DatabaseConn {
 			      	//;create=true
 			   getConnection("jdbc:" + this.dbms + ":" + this.dbName, connectionProps);
 			    }
-			    System.out.println("Connected to database");
 		  }
 			catch (Exception e){
 			// TODO Auto-generated catch block

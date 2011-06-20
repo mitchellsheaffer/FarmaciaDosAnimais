@@ -1,8 +1,7 @@
 package models;
-import javax.swing.*;
 import java.sql.*;
 
-public class Register extends JFrame{
+public class Register{
 	
 	/**
 	 * 
@@ -20,5 +19,6 @@ public class Register extends JFrame{
 	public Connection getConnection(){
 		return this.connection;
 	}
+	
 	
 }

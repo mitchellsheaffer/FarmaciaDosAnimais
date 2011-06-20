@@ -1,5 +1,7 @@
 package views;
 
+import java.awt.event.ActionEvent;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -929,7 +931,16 @@ public class Employee_View extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>                        
+    /*
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
 
+            public void run() {
+                new Employee_View().setVisible(true);
+            }
+        });
+    }
+    */
     /**
      * @param args the command line arguments
      */
@@ -1033,5 +1044,7 @@ public class Employee_View extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    // End of variables declaration                   
+    // End of variables declaration  
+
+		
 }
